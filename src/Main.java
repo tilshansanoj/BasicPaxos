@@ -3,6 +3,7 @@ public class Main {
 
     private static void run_paxos(int proposers, int timeDelay, int offlineMembers)
     {
+        //initializing the server and the thread
         Server server = new Server();
         Thread sthread = new Thread(server);
         sthread.start();
@@ -14,6 +15,7 @@ public class Main {
             System.out.println("Error: Server Launch was interrupted");
         }
 
+        //initializing the acceptors
         for (int i = proposers; i < Config.Acceptors; i++)
         {
             Member member = new Member(Config.Acceptor, i, timeDelay, 0);
@@ -22,6 +24,7 @@ public class Main {
             mthread.start();
         }
 
+        //initializing the proposers
         for (int i = Config.Proposers-1; i >= 0 ; i--) // counts down so that M-2 and M-3 get marked as offline not M1
         {
             Member proposer = new Member(Config.Proposer, i, timeDelay, offlineMembers);
