@@ -18,7 +18,7 @@ Back-off mechanism and message delay handling contribute to the systems's robust
 ## Prerequisities
 Java Development Kit (JDK)
 
-##How to run the Code
+## How to run the Code
 
 You can simple run Main.java. Can change the parameters like no. of Proposers, time delay between messages or no of offline Nodes.
 For further testing and details are covered in [Testing](./Testing.md).
